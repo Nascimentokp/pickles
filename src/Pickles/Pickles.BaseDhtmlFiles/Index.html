@@ -50,6 +50,14 @@
 
     <script type="text/html" id="steps-template">
         <li class="step">
+            <a role="button" data-toggle="collapse" href="#background1" aria-expanded="false" aria-controls="background1" class="collapsed">
+                @(GetBusinessMessages(traceEvent))
+            </a>
+            <div class="collapse" id="background1">
+                <code>
+                    <pre class="log" style="background-color:rgb(0, 0, 0); color: #FFFFFF;">Testes LOL</pre>
+                </code>
+            </div>
             <!-- ko if: StepComments != null && StepComments.length > 0 -->
             <span class="comment">
                 <!-- ko foreach: StepComments -->
@@ -100,7 +108,8 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <!-- ko ifnot: overviewVisible -->
-                <a class="brand" href="#" data-bind="text: configuration().SutName != null ? configuration().SutName : 'Features'"></a>
+                <img src="C:\Users\joao_nascimento\Desktop\ProjetoAtualizado\TRAluguel\oraculoplatform\TestResults\img\cielo.png" alt="Cielo" width="80" height="80" align="left">
+                <!--<a class="brand" href="#" data-bind="text: configuration().SutName != null ? configuration().SutName : 'Features'"></a>-->
                 <div class="navbar-search pull-left">
                     <input type="text" id="TypeAheadSearchBox" class="search-query" data-bind="value: whatToSearchFor" style="width: 300px" placeholder="@tag or feature name" />
                     <a id="SearchButton" data-bind="click: search" class="btn">Search</a>
@@ -172,7 +181,7 @@
                                 <!-- /ko -->
                                 </em>
                             </div>
-
+                           <!--Cenários aqui -->
                             <div class="scenario" data-bind="attr: { id: Slug }">
                                 <div data-bind="template: { name: 'testResults-template', data: Result }"></div>
 
