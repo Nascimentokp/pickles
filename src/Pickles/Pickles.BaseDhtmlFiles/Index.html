@@ -48,40 +48,44 @@
         </div>
     </script>
 
+    
     <script type="text/html" id="steps-template">
-         <!--<a role="button" data-toggle="collapse" href="#background1" aria-expanded="false" aria-controls="background1" class="collapsed">
+        <!--<a role="button" data-toggle="collapse" href="#background1" aria-expanded="false" aria-controls="background1" class="collapsed">
             @(GetBusinessMessages(traceEvent))
         </a>-->
-        <a role="button" data-toggle="collapse" href="#background1" aria-expanded="false" aria-controls="background1" class="collapsed">
-        <li class="step">
-            <div class="collapse" id="background1">
-                <code>
-                    <pre class="log" style="background-color:rgb(0, 0, 0); color: #FFFFFF;">@Raw(FormatTechMessages(traceEvent.TechMessages.TrimEnd()))</pre>
-                </code>
-            </div>
-            <!-- ko if: StepComments != null && StepComments.length > 0 -->
-            <span class="comment" >
-                <!-- ko foreach: StepComments -->
-                <span data-bind="text: Text"></span>
-                <br data-bind="visible : $index() != ($parent.length-1)" />
+       
+        <a role="button" data-toggle="collapse" href="#background" aria-expanded="false" aria-controls="background" class="collapsed">
+            <li class="step">
+
+                <!-- ko if: StepComments != null && StepComments.length > 0 -->
+                <span class="comment">
+                    <!-- ko foreach: StepComments -->
+                    <span data-bind="text: Text"></span>
+                    <br data-bind="visible : $index() != ($parent.length-1)" />
+                    <!-- /ko -->
+                </span>
                 <!-- /ko -->
-            </span>
-            <!-- /ko -->
-            <span class="keyword" data-bind="text: NativeKeyword"></span><span data-bind="text: Name"></span>
-            <div data-bind="if: DocStringArgument != ''">
-                <div data-bind="text: DocStringArgument" class="pre"></div>
-            </div>
-            <div data-bind="template: { name: 'table-template', data: $data.TableArgument }"></div>
-            <!-- ko if: AfterLastStepComments != null && AfterLastStepComments.length > 0 -->
-            <span class="comment">
-                <!-- ko foreach: AfterLastStepComments -->
-                <span data-bind="text: Text"></span>
-                <br data-bind="visible : $index() != ($parent.length-1)" />
+                <span class="keyword" data-bind="text: NativeKeyword"></span><span data-bind="text: Name"></span>
+                <div data-bind="if: DocStringArgument != ''">
+                    <div data-bind="text: DocStringArgument" class="pre"></div>
+                </div>
+                <div data-bind="template: { name: 'table-template', data: $data.TableArgument }"></div>
+                <!-- ko if: AfterLastStepComments != null && AfterLastStepComments.length > 0 -->
+                <span class="comment">
+                    <!-- ko foreach: AfterLastStepComments -->
+                    <span data-bind="text: Text"></span>
+                    <br data-bind="visible : $index() != ($parent.length-1)" />
+                    <!-- /ko -->
+                </span>
                 <!-- /ko -->
-            </span>
-            <!-- /ko -->
-        </li>
-     </a>
+            </li>
+        </a>
+
+        <div class="collapse" id="background">
+            <code>
+                <pre class="log" style="background-color:rgb(0, 0, 0); color: #FFFFFF;">@Raw(FormatTechMessages(traceEvent.TechMessages.TrimEnd()))</pre>
+            </code>
+        </div>
     </script>
 
     <script type="text/html" id="table-template">
